@@ -1,0 +1,38 @@
+.ui-accordion h3 {
+    border-color: #DEDEDE;
+    border-width: 5px;
+    border-style: solid;
+    margin: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+.ui-accordion h3.ui-state-active {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.ui-accordion h3 a {
+    font-size: 0.825em;
+    color: #F29400;
+    outline: none;
+}
+
+.ui-accordion-content {
+    border-color: #DEDEDE;
+    border-width: 5px;
+    border-style: solid;
+    margin: 5px;
+    padding: 5px;
+}
+
+.ui-accordion-content-active {
+    border-top: none;
+    margin-top: 0;
+    font-size: 0.65em;
+}
+
+.ui-accordion-content p {
+    margin-bottom: 5px;
+}
+
