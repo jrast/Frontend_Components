@@ -39,7 +39,7 @@ class Accordion extends UIElement {
                             });
                         });
 JS
-                );
+                ,$this->ID);
     }
 
     public function setItems($items) {

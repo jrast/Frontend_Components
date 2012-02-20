@@ -11,13 +11,13 @@ abstract class UIElement extends ViewableData {
 
     abstract public function initialize();
 
-    protected function includeJQuery() {
-        Requirements::javascript($this->jQuery);
+    static function includeJQuery() {
+        Requirements::javascript(self::$jQuery);
     }
 
-    protected function includeJQueryUI() {
-        $this->includeJQuery();
-        Requirements::javascript($this->jQueryUI);
+    static function includeJQueryUI() {
+        self::includeJQuery();
+        Requirements::javascript(self::$jQueryUI);
     }
 
     static function getJQuery() {
