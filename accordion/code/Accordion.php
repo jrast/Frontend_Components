@@ -35,7 +35,8 @@ class Accordion extends UIElement {
                 	$(function() {
                             $( "#accordion_{$this->ID}" ).accordion({
                                 active: false,
-                                animated: false
+                                animated: false,
+                                collapsible: true
                             });
                         });
 JS
