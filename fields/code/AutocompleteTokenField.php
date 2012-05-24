@@ -13,10 +13,12 @@
 class AutocompleteTokenField extends UIElement {
     private $ID = null;
     private $callbackURL;
+    private $object;
     
-    public function __construct($callbackURL, $name = null) {
+    public function __construct(Object $object, $callbackURL) {
+        $this->object = $object;
         $this->callbackURL = $callbackURL;
-        $this->initialize($name);
+        $this->initialize($this->object->ID);
         parent::__construct();
     }
     
@@ -34,16 +36,32 @@ class AutocompleteTokenField extends UIElement {
                 $(document).ready(function() {
                     $("#tokenInput_{$this->ID}").tokenInput("{$this->callbackURL}",
                         {
-                            theme: "facebook",
                             hintText: "Gib einen Namen ein...",
                             noResultsText: "Kein Mitglied mit diesem Name gefunden!",
                             searchingText: "Bin am Suchen...",
                             preventDuplicates: true,
+                            prePopulate: {$this->object->TeilnehmerJSON()},
                             onAdd: function(item) {
-                                alert("Added " + item.name + " ID:" + item.id);
+                                    $.ajax("tour/anmeldenVerwaltung/{$this->object->ID}/" + item.id,
+                                    {
+                                        statusCode: 
+                                        {
+                                            404: function() {
+                                                alert("Mitglied kann nicht angemeldet werden, es ist ein Fehler aufgetreten");
+                                            }
+                                        }
+                                    });
                                 },
                             onDelete: function(item) {
-                                alert("Deleted " + item.name + " ID:" + item.id);
+                                    $.ajax("tour/abmeldenVerwaltung/{$this->object->ID}/" + item.id,
+                                    {
+                                        statusCode: 
+                                        {
+                                            404: function() {
+                                                alert("Mitglied kann nicht abgemeldet werden, es ist ein Fehler aufgetreten");
+                                            }
+                                        }                                    
+                                    });
                                 }
                         });
                 });
