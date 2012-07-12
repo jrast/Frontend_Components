@@ -6,8 +6,8 @@
  * @author jrast
  */
 abstract class UIElement extends ViewableData {
-    private static $jQuery = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
-    private static $jQueryUI = 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js';
+    public static $jQuery = 'framework/thirdparty/jquery/jquery.min.js';
+    public static $jQueryUI = 'framework/thirdparty/jquery-ui/jquery-ui.min.js';
 
     abstract public function initialize();
 
@@ -27,5 +27,6 @@ abstract class UIElement extends ViewableData {
     static function getJQueryUI() {
         return self::$jQueryUI;
     }
+    
 }
 ?>

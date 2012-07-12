@@ -1,8 +1,8 @@
 <% if Items %>
 <div id="accordion_{$ID}">
-    <% control Items %>
+    <% loop Items %>
     $Item
-    <% end_control %>
+    <% end_loop %>
 </div>
 <% else %>
 <p>Keine Einträge vorhanden</p>
