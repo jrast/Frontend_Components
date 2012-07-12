@@ -45,7 +45,7 @@ JS
     }
 
     public function setItems($items) {
-        $this->items = new DataObjectSet();
+        $this->items = new ArrayList();
         if($items) {
             foreach($items as $item) {
                 $this->items->push(new Accordion_item($item,$this->item_template));
